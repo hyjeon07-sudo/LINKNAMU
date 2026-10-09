@@ -8,10 +8,13 @@ type ClickDoc = { _id: string; count: number };
 
 const validIds = new Set(profile.links.map((link) => link.id));
 
-// 링크별 클릭 수 조회
+// 링크별 클릭 수 조회 (지금 목록에 있는 링크만)
 export async function GET() {
   const db = await getDb();
-  const docs = await db.collection<ClickDoc>("clicks").find().toArray();
+  const docs = await db
+    .collection<ClickDoc>("clicks")
+    .find({ _id: { $in: Array.from(validIds) } })
+    .toArray();
   const counts = Object.fromEntries(docs.map((doc) => [doc._id, doc.count]));
   return NextResponse.json(counts);
 }
