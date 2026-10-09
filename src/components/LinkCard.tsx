@@ -15,13 +15,16 @@ export default function LinkCard({ id, title, url }: Props) {
     }
   };
 
+  // mailto: 링크는 새 탭으로 열면 빈 탭이 남으므로 현재 탭에서 메일 앱을 엽니다.
+  const isExternalPage = !url.startsWith("mailto:");
+
   return (
     <a
       href={url}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={isExternalPage ? "_blank" : undefined}
+      rel={isExternalPage ? "noopener noreferrer" : undefined}
       onClick={recordClick}
-      className="block w-full rounded-2xl border border-gray-200 bg-white px-5 py-4 text-center font-medium shadow-sm transition hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 dark:border-gray-800 dark:bg-gray-900 dark:hover:bg-gray-800"
+      className="block w-full rounded-3xl border border-white/70 bg-white/45 px-6 py-[1.125rem] text-center text-[15px] font-semibold text-stone-700 shadow-[0_4px_20px_-6px_rgba(160,90,50,0.15)] backdrop-blur-xl transition duration-300 ease-out hover:-translate-y-px hover:bg-white/65 hover:shadow-[0_8px_28px_-8px_rgba(160,90,50,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 active:translate-y-0 dark:border-white/10 dark:bg-white/[0.06] dark:text-stone-100 dark:shadow-[0_4px_20px_-6px_rgba(0,0,0,0.5)] dark:hover:bg-white/10"
     >
       {title}
     </a>

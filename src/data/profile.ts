@@ -14,12 +14,12 @@ export type Profile = {
 
 // TODO: 보여 주기용 더미 값입니다. 실제 내 정보와 링크, 사진으로 바꿔 주세요.
 export const profile: Profile = {
-  name: "홍길동",
-  bio: "여기에 한 줄 소개가 들어갑니다",
-  image: "/profile-placeholder.svg",
+  name: "전해용",
+  bio: "풀스택 개발자 / 요즘에는 ai 개발에 관심이 많아요",
+  image: "/profile.png",
   links: [
-    { id: "github", title: "GitHub", url: "https://github.com/" },
-    { id: "linkedin", title: "LinkedIn", url: "https://www.linkedin.com/" },
-    { id: "blog", title: "Blog", url: "https://example.com/" },
+    { id: "github", title: "💻 깃허브", url: "https://github.com/hyjeon07-sudo/LINKNAMU" },
+    { id: "blog", title: "✍️ 블로그", url: "https://blog.naver.com/brucejeun" },
+    { id: "email", title: "📧 이메일", url: "mailto:hyjeon07@gmail.com" },
   ],
 };
